@@ -1,0 +1,41 @@
+$font-stack: sans-serif;
+$primary-color: #3e51b5;
+$font-color: #fff;
+$link-color: #fff;
+$input-height: 42px;
+$font-size: 16px;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+  font-weight: lighter;
+  font-size: $font-size;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input {
+  height: $input-height;
+  width: 100%;
+  border-style: none;
+  font-size: $font-size;
+  &:focus {
+    outline: none;
+  }
+}
+
+.centeredContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputHeight {
+  height: 42px;
+}

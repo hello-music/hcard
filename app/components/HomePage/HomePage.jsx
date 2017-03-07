@@ -1,9 +1,15 @@
 import React from 'react';
-import { pageContainer } from './styles.scss';
+import { CardBuilderContainer, CardBuilderPreviewContainer } from 'containers';
+import { pageContainer, cardBuilderContainer, cardBuilderPreviewContainer } from './styles.scss';
 
 const HomePage = () => (
     <div className={pageContainer}>
-        {'this is home'}
+        <div className={cardBuilderContainer}>
+            <CardBuilderContainer />
+        </div>
+        <div className={cardBuilderPreviewContainer}>
+            <CardBuilderPreviewContainer />
+        </div>
     </div>
 );
 export default HomePage;
