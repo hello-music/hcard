@@ -2,7 +2,7 @@ import React from 'react';
 import { pageContainer } from './styles.scss';
 
 const HomePage = () => (
-    <div className="pageContainer">
+    <div className={pageContainer}>
         {'this is home'}
     </div>
 );

@@ -62,13 +62,9 @@ const base = {
             {
                 test: /\.scss$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {modules: true},
-                    },
+                    'style-loader?sourceMap',
+                    'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+                    'sass-loader?sourceMap',
                 ],
             },
             {
