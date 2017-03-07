@@ -1,24 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import getRoutes from 'config/routes';
-import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import {Provider} from 'react-redux';
-import {routerReducer, syncHistoryWithStore} from 'react-router-redux';
-import {browserHistory} from 'react-router';
+import { Provider } from 'react-redux';
+import { reducer as formReducer } from 'redux-form';
+import { HomePageContainer } from 'containers';
 
 const store = createStore(
-    combineReducers({routing: routerReducer}),
+    combineReducers({form: formReducer}),
     compose(
         applyMiddleware(thunk),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )
 );
 
-const history = syncHistoryWithStore(browserHistory, store);
-
 ReactDOM.render(
     <Provider store={store}>
-        {getRoutes(history)}
+        <HomePageContainer />
     </Provider>,
     document.getElementById('app'));

@@ -11,8 +11,6 @@
 
 ├── /app/                       # Development work
 │   ├── /components/            # Shared or generic UI components
-│   ├── /config/                # Core framework
-│   │   ├── /routes.js         # Handles routing 
 ├── /containers/                # React component containers that have only business logic and render stateless functional components
 ├── /redux/                     # Redux
 │   ├── /modules/               # Actions + reducers
@@ -31,16 +29,12 @@
 ### Framework
 - React
 - Redux
-- React-router
-- Graphql
 
 ### Plugins
 - Babel
 - Immutable - **make states immutable and having performance benefits**
 - Redux-thunk - **function blocks of actions**
-- React-router-redux - **add url to redux store**
-- Redux-mock-store - **crate mock store for testing**
-- graphql-tools - **mock server**
+- Redux-form - **handle form inputs**
 
 #### Bundling/Server
 - Webpack
@@ -61,16 +55,15 @@ Clone or download this project.
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-$ cd qantas-test
+$ cd hcard-test
 $ npm install
 $ npm run start
 ```
 
-Go to browser: localhost:3000
+Go to browser: localhost:8080
 
 ### Todos
 
- - Plugin Relay
  - Add tests
  - UI/UX improvements
  - sri integrity
