@@ -1,0 +1,12 @@
+.navBar{
+    composes: fullWidth from 'sharedStyles/styles.css';
+    height: 80px;
+    background-color: #5f9ea0;
+}
+.navBar a {
+    color: white;
+}
+
+.content {
+    margin: 50px 0;
+}
