@@ -9,8 +9,8 @@ const isProduction = LAUNCH_COMMAND === 'production';
 process.env.BABEL_ENV = LAUNCH_COMMAND;
 
 const PATHS = {
-    app: path.join(__dirname, 'app'),
-    build: path.join(__dirname, 'dist'),
+    app: path.resolve(__dirname, 'app'),
+    build: path.resolve(__dirname, 'dist'),
 };
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -25,7 +25,9 @@ const productionPlugin = new webpack.DefinePlugin({
     },
 });
 
-const uglifyPlugin = new webpack.optimize.UglifyJsPlugin();
+const uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
+    sourceMap: true,
+});
 const cleanPlugin = new CleanWebpackPlugin(['dist']);
 
 const base = {
@@ -38,16 +40,56 @@ const base = {
         filename: 'index-bundle-[hash].js',
     },
     module: {
-        loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.jsx$/, exclude: [/node_modules/], loader: 'babel-loader' },
-            { test: /\.css$/, loader: 'style!css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]' },
-            { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/, loader: "file" },
+        rules: [
+            {
+                test: /\.js$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    }
+                ],
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.jsx$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    }
+                ],
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {modules: true},
+                    },
+                ],
+            },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+                use: [
+                    {
+                        loader: 'file',
+                    },
+                ],
+            },
         ],
     },
     resolve: {
-        root: path.resolve('./app'),
-        extensions: ['', '.js', '.jsx'],
+        modules: [
+            path.resolve(__dirname, 'app'),
+            "node_modules"
+        ],
+        alias: {
+            config: path.resolve(__dirname, 'app/config/'),
+        },
+        extensions: ['.js', '.jsx'],
     },
 };
 
@@ -57,7 +99,6 @@ const developmentConfig = {
         contentBase: PATHS.build,
         hot: true,
         inline: true,
-        progress: true,
         historyApiFallback: true
     },
     plugins: [HTMLWebpackPluginConfig, new webpack.HotModuleReplacementPlugin()],
@@ -71,4 +112,3 @@ const productionConfig = {
 export default Object.assign(
     {}, base, isProduction === true ? productionConfig : developmentConfig
 );
-
