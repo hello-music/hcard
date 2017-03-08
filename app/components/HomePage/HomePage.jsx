@@ -3,6 +3,7 @@ import { CardBuilderContainer, CardBuilderPreviewContainer } from 'containers';
 import { pageContainer, cardBuilderContainer, cardBuilderPreviewContainer } from './styles.scss';
 
 const HomePage = () => (
+
     <div className={pageContainer}>
         <div className={cardBuilderContainer}>
             <CardBuilderContainer />

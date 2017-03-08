@@ -1,41 +1,119 @@
-$font-stack: sans-serif;
-$primary-color: #3e51b5;
-$font-color: #fff;
-$link-color: #fff;
-$input-height: 42px;
-$font-size: 16px;
+$font_stack: Helvetica, sans-serif;
+$primary_color: #3e51b5;
+$font_color: #fff;
+$link_color: #fff;
+$input_height: 42px;
+$font_size: 16px;
 
 html, body {
-  margin: 0;
-  padding: 0;
-  font-family: $font-stack;
-  font-weight: lighter;
-  font-size: $font-size;
+    margin: 0;
+    padding: 0;
+    font-family: $font-stack;
+    font-weight: lighter;
+    font-size: $font-size;
 }
-
-a {
-  color: $link-color;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 input {
-  height: $input-height;
-  width: 100%;
-  border-style: none;
-  font-size: $font-size;
-  &:focus {
-    outline: none;
-  }
+    height: $input-height;
+    width: 100%;
+    font-size: $font-size;
+    &:focus {
+        outline: none;
+    }
 }
 
-.centeredContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+/*Basic Row Styles*/
+.Row {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
 }
 
-.inputHeight {
-  height: 42px;
+.Row_col {
+    flex: 1;
+}
+
+// Row Style Modifiers
+
+/* With gutters*/
+$gutter: 1em;
+.Row__gutters {
+    margin-left: -$gutter;
+    .Row_col {
+        padding-left: $gutter;
+    }
+    .Row__nested {
+        .Row_col:first-of-type {
+            .Demo {
+                margin-right: 1em;
+            }
+        }
+    }
+}
+
+/* Justify per row*/
+.Row__right {
+    justify-content: flex-end;
+}
+.Row__center {
+    justify-content: center;
+}
+
+/* Alignment per row */
+.Row__top {
+    align-items: flex-start;
+}
+.Row__bottom {
+    align-items: flex-end;
+}
+.Row__center {
+    align-items: center;
+}
+
+/* Alignment per cell */
+.Row_col__top {
+    align-self: flex-start;
+}
+.Row_col__bottom {
+    align-self: flex-end;
+}
+.Row_col__center {
+    align-self: center;
+}
+
+/*===========================================*/
+/* Base classes for all media - Mobile first */
+.Row__cols_2 > .Row_col {
+    flex: 0 0 100%;
+}
+
+/* One of -- columns*/
+.Row__1of2 > .Row_col{
+    flex: 0 0 100%;
+}
+.Row__full > .Row_col {
+    flex: 0 0 100%;
+}
+
+/* Tablet (medium) screens */
+@media (min-width: 30em) {
+    .Row__1of2 > .Row_col {
+        flex: 0 0 50%;
+    }
+}
+
+/* Large screens */
+@media (min-width: 48em) {
+    .Row__cols_2 > .Row_col{
+        flex: 1;
+    }
+    .Row__1of2 > .Row_col {
+        flex: 0 0 50%;
+    }
+    .Row__gutters.Row__nested {
+        .Row_col:first-of-type {
+            .Demo {
+                margin-right: 0;
+            }
+        }
+    }
 }
