@@ -1,19 +1,19 @@
 @import "../../sharedStyles/styles";
 
 .pageContainer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    composes: Row;
-    composes: Row__cols_2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  composes: Row;
+  composes: Row__cols_2;
 }
 
 .cardBuilderContainer {
-    composes: Row_col;
+  composes: Row_col;
 }
 
 .cardBuilderPreviewContainer {
-    composes: Row_col;
-    background-color: rgba($primary-color, 1);
+  composes: Row_col;
+  background-color: rgba($primary-color, 1);
 }

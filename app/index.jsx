@@ -7,15 +7,15 @@ import { reducer as formReducer } from 'redux-form';
 import { HomePageContainer } from 'containers';
 
 const store = createStore(
-    combineReducers({form: formReducer}),
-    compose(
-        applyMiddleware(thunk),
-        window.devToolsExtension ? window.devToolsExtension() : f => f
-    )
+  combineReducers({form: formReducer}),
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 );
 
 ReactDOM.render(
-    <Provider store={store}>
-        <HomePageContainer />
-    </Provider>,
-    document.getElementById('app'));
+  <Provider store={store}>
+    <HomePageContainer />
+  </Provider>,
+  document.getElementById('app'));

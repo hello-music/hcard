@@ -4,13 +4,13 @@ import { pageContainer, cardBuilderContainer, cardBuilderPreviewContainer } from
 
 const HomePage = () => (
 
-    <div className={pageContainer}>
-        <div className={cardBuilderContainer}>
-            <CardBuilderContainer />
-        </div>
-        <div className={cardBuilderPreviewContainer}>
-            <CardBuilderPreviewContainer />
-        </div>
+  <div className={pageContainer}>
+    <div className={cardBuilderContainer}>
+      <CardBuilderContainer />
     </div>
+    <div className={cardBuilderPreviewContainer}>
+      <CardBuilderPreviewContainer />
+    </div>
+  </div>
 );
 export default HomePage;
