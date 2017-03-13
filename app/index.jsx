@@ -4,10 +4,11 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { reducer as formReducer } from 'redux-form';
+import * as reducers from 'redux/modules';
 import { HomePageContainer } from 'containers';
 
 const store = createStore(
-  combineReducers({form: formReducer}),
+  combineReducers({...reducers, form: formReducer}),
   compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f

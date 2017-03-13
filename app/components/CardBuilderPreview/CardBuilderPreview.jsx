@@ -1,6 +1,8 @@
 import React from 'react';
 
-const CardBuilderPreview = () => (
-  <div>{'card builder preview'}</div>
+const CardBuilderPreview = props => (
+  <div>
+    <label></label>
+  </div>
 );
 export default CardBuilderPreview;
