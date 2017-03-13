@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 const CardBuilderPreview = props => (
   <div>
-    <label></label>
+    <img src={props.imageUrl} />
   </div>
 );
+
+CardBuilderPreview.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+};
+
 export default CardBuilderPreview;

@@ -95,7 +95,6 @@ const CardBuilder = props => {
             </div>
           </div>
         </form>
-        <image src={props.profileImageUrl} />
       </div>
     </div>
   );

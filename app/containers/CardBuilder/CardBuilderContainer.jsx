@@ -14,10 +14,10 @@ const renderImage = (file, saveImageFunc) => {
 
   reader.onload = function (event) {
     const url = event.target.result;
-    console.log('url: ', url);
     saveImageFunc(url);
   };
 };
+
 class CardBuilderContainer extends React.Component {
   constructor () {
     super();
@@ -38,10 +38,8 @@ CardBuilderContainer.propTypes = {
   saveImage: PropTypes.func.isRequired,
 };
 
-function mapStateToProps ({profileImage}) {
-  return {
-    profileImage,
-  };
+function mapStateToProps () {
+  return {};
 }
 
 function mapDispatchToProps () {
@@ -51,4 +49,5 @@ function mapDispatchToProps () {
 const CardBuilderContainerWrapper = reduxForm({
   form: CARD_BUILDER_FORM,
 })(CardBuilderContainer);
+
 export default connect(mapStateToProps, mapDispatchToProps)(CardBuilderContainerWrapper);
