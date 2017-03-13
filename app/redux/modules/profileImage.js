@@ -15,4 +15,3 @@ export default function profileImage (state = {src: ''}, action) {
       return state;
   }
 }
-

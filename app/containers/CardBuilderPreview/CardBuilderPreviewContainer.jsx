@@ -17,7 +17,6 @@ CardBuilderPreviewContainer.propTypes = {
 };
 
 const mapStateToProps = state => {
-  console.log('image: ', state.profileImage.src);
   return {
     validFormValues: getValidFormValues(state),
     fullName: getFullName(state),
